@@ -5,11 +5,11 @@ This respository contains code for various phases of an ML pipeline for any data
 ### Contents
 
 ```
-|-- data/             <-- data used in EDA and preparing logic
-|-- notebooks/        <-- Jupyter notebooks for EDA, visualizations and development of solution for use case
+|-- data /             <-- data used in EDA and preparing logic
+|-- notebooks /        <-- Jupyter notebooks for EDA, visualizations and development of solution for use case
 |-- README.md
-|-- src/
-      |-- models      <-- code for training, saving and evaluating models
-      |-- features    <-- code for feature engineering
+|-- src /
+      |-- models /     <-- code for training, saving and evaluating models
+      |-- features /    <-- code for feature engineering
 ```
 
