@@ -31,6 +31,6 @@ $$ CI = M \pm Z_{0.95}\sigma $$
 
 M = Mean
 
-Z_{0.95} = No. of standard deviations extending from the mean of the normal distribution required to contain a 0.95 area.
+$Z_{0.95}$ = No. of standard deviations extending from the mean of the normal distribution required to contain a 0.95 area.
 
-sigma = Standard Error of the mean
+$\sigma$ = Standard Error of the mean
