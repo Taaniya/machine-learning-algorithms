@@ -30,13 +30,17 @@ To ensure accurate predictions, linear regression relies on four core statistica
  * The Equation: It relies on the linear equation $y = mx + b$ (or $y = wx + b$), where y is the target output, x is the input feature, m (or w) is the slope, and b is the intercept.
  * Optimization: Algorithms like Ordinary Least Squares (OLS) or Gradient Descent are used to adjust the slope and intercept during training to reduce the error
 
-### Measuring Error: The Cost Function
+### 1. Measuring Error: The Cost Function
 * The most common method used to calculate error is **Mean Squared Error (MSE)**.
-* **Calculate Residuals:** For every data point, the model calculates the distance between the actual value (\(y\)) and the predicted value on the line (\(\^{y}\)). This distance is the error (residual).
+* **Calculate Residuals:** For every data point, the model calculates the distance between the actual value $y$ and the predicted value on the line $\hat{y}$. This distance is the error (residual).
 * **Square the Errors:** The model squares each error. Squaring does two things: it removes negative signs and penalizes larger errors more heavily.
 * **Average Them:** It takes the average of all these squared errors.
 * The goal of the model is simple: **minimize the MSE**. The lower the cost, the better the fit.
 
 
+### 2. Finding the Best Line: Optimization
+* To minimize the cost function and find the optimal slope (\(w\)) and intercept (\(b\)), machine learning algorithms generally use one of two mathematical approaches:
+* **Ordinary Least Squares (OLS):** This is a direct, analytical approach. It uses linear algebra and calculus to solve an exact formula that finds the absolute minimum error in one single calculation. It is highly efficient for smaller datasets.
+* **Gradient Descent:** This is an iterative optimization approach used for massive datasets. The model starts with random guesses for the slope and intercept, calculates the MSE, and then takes small steps downward (in the direction of the steepest descent) until the error stops changing.
 
  
