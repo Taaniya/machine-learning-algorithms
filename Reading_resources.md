@@ -66,3 +66,24 @@ To ensure accurate predictions, linear regression relies on four core statistica
 * Combine Variables: Merge correlated features into a single new feature, like combining height and width into volume.
 * Apply Regularization: Use advanced linear models like Ridge Regression or Lasso Regression, which shrink the coefficients and handle correlated inputs safely
 
+
+## What is a p-value in linear and logistic regression models?
+* In regression modeling, the p-value evaluates whether a specific independent variable has a statistically significant relationship with the target variable.
+* For both linear and logistic regression, the Null Hypothesis $H_{0}$ states that an input feature has no effect on the target (meaning its mathematical weight or coefficient is zero).
+* A low p-value (typically $\le$ 0.05) rejects this hypothesis, proving the feature is a statistically significant predictor.
+
+While the core purpose is the same, how the p-value is calculated and interpreted changes based on the model type:
+
+### 1. P-Value in Linear Regression
+In linear regression, the p-value tests the straight-line relationship between a continuous input and a continuous output.
+* What it tests: It determines if the slope $w$ of the feature is significantly different from zero.
+* The Math: It uses a t-test. It divides the calculated coefficient by its standard error to get a t-statistic, which is then mapped to the p-value.
+* Interpretation Example: If you are predicting house prices using Square Footage, a p-value of 0.002 means there is only a 0.2% chance that the relationship you see between size and price is a random coincidence. The feature is highly significant. 
+
+### 2. P-Value in Logistic Regression
+In logistic regression, the target is categorical (e.g., Yes/No, Spam/Not Spam). The model uses a curve (sigmoid function) to predict probabilities rather than straight lines.
+* What it tests: It determines if a change in the input feature significantly changes the log-odds of the target event occurring.
+* The Math: Instead of a t-test, it typically uses a Wald $\chi^{2}$ (Chi-Squared) test or a Z-test. This accounts for the non-linear, probabilistic nature of logistic regression.
+* Interpretation Example: If you are predicting whether a patient has diabetes based on Blood Sugar, a p-value of 0.04 means Blood Sugar is a statistically significant predictor of the probability of having diabetes.
+
+
