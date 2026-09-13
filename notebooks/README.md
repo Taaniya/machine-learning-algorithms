@@ -35,7 +35,8 @@ $Z_{0.95}$ = No. of standard deviations extending from the mean of the normal di
 
 $\sigma$ = Standard Error of the mean
 
-**Further reading sources:**
-* [Data analysis with box-plot](https://www.geeksforgeeks.org/data-analysis/box-plot/)
-* [EDA in python](https://www.geeksforgeeks.org/data-analysis/exploratory-data-analysis-in-python/)
+### Further reading sources:
 * [What is EDA](https://www.geeksforgeeks.org/data-analysis/what-is-exploratory-data-analysis/)
+* [EDA in python](https://www.geeksforgeeks.org/data-analysis/exploratory-data-analysis-in-python/)
+* [Univariate, bivariate and multi-variate data and its analysis](https://www.geeksforgeeks.org/data-analysis/univariate-bivariate-and-multivariate-data-and-its-analysis/)
+* [Data analysis with box-plot](https://www.geeksforgeeks.org/data-analysis/box-plot/)
