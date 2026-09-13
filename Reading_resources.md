@@ -43,4 +43,26 @@ To ensure accurate predictions, linear regression relies on four core statistica
 * **Ordinary Least Squares (OLS):** This is a direct, analytical approach. It uses linear algebra and calculus to solve an exact formula that finds the absolute minimum error in one single calculation. It is highly efficient for smaller datasets.
 * **Gradient Descent:** This is an iterative optimization approach used for massive datasets. The model starts with random guesses for the slope and intercept, calculates the MSE, and then takes small steps downward (in the direction of the steepest descent) until the error stops changing.
 
- 
+
+# What is multicollinearity? How does it impact linear regression?
+* Multicollinearity happens when two or more independent variables in a multiple linear regression model are strongly correlated with each other, meaning they try to explain the same part of the information in the target variable.
+* When you use multiple linear regression, you want each input feature to give unique, independent clues to the model.
+* If two features move up and down together—like a person's height in centimeters and their height in inches—the model gets confused about which feature is actually causing the change in the target variable.
+
+
+## Why Multicollinearity is a Crucial Problem
+* Unstable Coefficients: Small changes in your data can cause huge, wild swings in the values of your regression coefficients.
+* Unreliable p-values: It inflates the standard errors of your coefficients, making truly important variables look statistically insignificant.
+* Hard to Interpret: You cannot trust the individual impact of each feature anymore because they overlap too much.
+
+## How to Detect Multicollinearity
+* Correlation Matrix: You can build a heat map or table of correlations between all pairs of input features. A correlation value close to +1 or -1 signals a red flag.
+* Variance Inflation Factor (VIF):
+  * This is the standard numerical test. VIF measures how much the variance of a coefficient is boosted because of collinearity.
+  * A VIF value above 5 or 10 means multicollinearity is too high and needs attention.
+
+## How to Fix Multicollinearity
+* Drop a Feature: Remove one of the highly correlated variables if they provide redundant information.
+* Combine Variables: Merge correlated features into a single new feature, like combining height and width into volume.
+* Apply Regularization: Use advanced linear models like Ridge Regression or Lasso Regression, which shrink the coefficients and handle correlated inputs safely
+
