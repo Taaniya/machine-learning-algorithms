@@ -34,3 +34,8 @@ M = Mean
 $Z_{0.95}$ = No. of standard deviations extending from the mean of the normal distribution required to contain a 0.95 area.
 
 $\sigma$ = Standard Error of the mean
+
+**Further reading sources:**
+* [Data analysis with box-plot](https://www.geeksforgeeks.org/data-analysis/box-plot/)
+* [EDA in python](https://www.geeksforgeeks.org/data-analysis/exploratory-data-analysis-in-python/)
+* [What is EDA](https://www.geeksforgeeks.org/data-analysis/what-is-exploratory-data-analysis/)
