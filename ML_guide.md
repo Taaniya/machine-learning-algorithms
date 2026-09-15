@@ -235,3 +235,38 @@ In logistic regression, the target is categorical (e.g., Yes/No, Spam/Not Spam).
 * Interpretation Example: If you are predicting whether a patient has diabetes based on Blood Sugar, a p-value of 0.04 means Blood Sugar is a statistically significant predictor of the probability of having diabetes.
 
 
+# Feature scaling techniques
+
+* **Standardization (Z-Score Normalization):** Centers data to a mean of 0 and a standard deviation of 1 using the StandardScaler method.
+* **Min-Max Scaling (Normalization):** Rescales data to a fixed range, usually between 0 and 1, using the MinMaxScaler method.
+* **Robust Scaling:** Uses the median and Interquartile Range (IQR) to scale data, reducing the impact of extreme values via the RobustScaler method.
+* **Max Absolute Scaling:** Divides each value by the maximum absolute value of that feature, bounding data between -1 and 1. 
+
+
+* **Use Standardization When:**
+  * Your algorithm assumes a normal (Gaussian) distribution (e.g., Linear Regression, Logistic Regression, Principal Component Analysis (PCA), Support Vector Machines).
+  * Your data contains outliers, because standardization handles extreme values better than min-max scaling.
+  * You are training models using gradient descent optimization, as it helps the model converge faster. 
+
+* **Use Min-Max Scaling When:**
+   * Your algorithm requires inputs within a bounded, strict range like (e.g., Artificial Neural Networks with activation functions like Sigmoid or ReLU).
+   * Your data does not follow a normal distribution, but has known, stable minimum and maximum boundaries (e.g., image pixel values from 0 to 255). 
+   * You want to preserve zero values in sparse datasets instead of turning them into negative/positive floating-point numbers. 
+
+* **Use Robust Scaling When:**
+  * Your dataset contains heavy outliers or extreme anomalies that distort the mean and standard deviation.
+  * You want a reliable center point and spread that stays unaffected by extreme data points. 
+
+
+
+You **do not** need to use any feature scaling techniques (like standardization or normalization) when using **tree-based models** such as Random Forest, LightGBM, XGBoost, or CatBoost.
+
+## Why Tree-Based Models Don't Need Scaling
+* **Split-based decisions:** Trees split data based on thresholds (e.g., feature X <= 5.4). Scaling a feature up or down shifts the absolute numbers, but the relative order of values stays the same. The algorithm finds the exact same optimal split point either way.
+* **Invariant to monotonic transformations:** Multiplying a feature by 10 or adding 5 does not change how a decision tree evaluates splits or calculates impurity metrics (like Gini or Entropy).
+* **Independent feature evaluation:** Trees evaluate features individually rather than computing distances or weighted sums across multiple features (unlike K-Nearest Neighbors, Neural Networks, or Linear Regression).
+
+### Exceptions?
+* **Regularization (L1/L2):** Some tree-boosting libraries or custom implementations use penalty terms that depend on feature magnitudes, but standard implementations of XGBoost, LightGBM, CatBoost, and Random Forest handle feature splits independently of scale. 
+* **Mixed Pipelines:** If your machine learning pipeline includes a mix of models (like combining a Neural Network or Logistic Regression with a Random Forest in an ensemble), you may still scale the features for the non-tree models, and the tree models will simply ignore the scaling effects without penalty.
+
