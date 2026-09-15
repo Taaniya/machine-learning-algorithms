@@ -1,3 +1,25 @@
+# EDA
+EDA is about understanding the "story" of the data before building a model. We can follow below step-by-step process using a structured framework:
+
+## Data Overview & Sanity Checks:
+* Check the shape of the dataset (rows and columns).
+* Identify data types (numerical vs. categorical).
+* Preview the first few rows to understand the feature structure.
+
+## Data Cleaning:
+* Missing Values: Detect them and come up with a strategy for handling them (e.g., imputation using mean/median/mode, creating a "Missing" category, or dropping rows/columns if missingness is extreme).
+* Outliers: Identify them with any of these strategies - Z-score, IQR, or box plots and decide whether to cap, transform, or remove them based on the context.
+* Duplicates: Identify and remove redundant rows.
+
+## Univariate Analysis:
+* Analyze variables one by one.
+* Use histograms and density plots for numerical variables to check for skewness.
+* Use bar charts for categorical variables to check the frequency distribution.
+
+## Bivariate & Multivariate Analysis:
+* Look for relationships between features and the target variable (e.g., box plots of a numerical feature across different target classes).
+* Use a correlation matrix (heatmap) to check for relationships between numerical features, keeping a sharp eye out for multicollinearity.
+
 
 # What is a linear regression model?
 * Linear regression is a fundamental supervised machine learning algorithm used to model the linear relationship between a continuous dependent variable and one or more independent variables by fitting a straight line
