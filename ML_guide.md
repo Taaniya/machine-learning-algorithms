@@ -20,6 +20,22 @@ EDA is about understanding the "story" of the data before building a model. We c
 * Look for relationships between features and the target variable (e.g., box plots of a numerical feature across different target classes).
 * Use a correlation matrix (heatmap) to check for relationships between numerical features, keeping a sharp eye out for multicollinearity.
 
+# Strategies to handle missing values
+* **Mean Imputation**
+  * When to use: The data is numeric and forms a bell curve or symmetrical shape.
+  * Why it works: The average balances out evenly when data points cluster symmetrically around the center.
+  * Example: Normal human body temperatures or standardized test scores without extreme scores. [1, 2]
+
+* **Median Imputation**
+  * When to use: The data is skewed (pulled toward high or low values) or has major outliers.
+  * Why it works: Extreme high or low numbers pull the mean away from the true center, but the middle value (median) stays robust and unaffected.
+  * Example: Household income or property prices, where a few multi-million dollar values distort the average. [1, 2, 3]
+
+* **Best Practice Tip**
+  * Always check your data distribution with a histogram or boxplot before choosing an imputation method. Furthermore, always calculate the mean or median strictly from your training dataset to prevent data leakage into your test set. [1, 2]
+
+Reference:
+* [MeanMedianImputer](https://feature-engine.trainindata.com/en/1.8.x/user_guide/imputation/MeanMedianImputer.html#meanmedianimputer)
 
 # What is a linear regression model?
 * Linear regression is a fundamental supervised machine learning algorithm used to model the linear relationship between a continuous dependent variable and one or more independent variables by fitting a straight line
