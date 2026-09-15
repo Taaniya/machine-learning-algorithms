@@ -118,6 +118,67 @@ To ensure accurate predictions, linear regression relies on four core statistica
 * **Gradient Descent:** This is an iterative optimization approach used for massive datasets. The model starts with random guesses for the slope and intercept, calculates the MSE, and then takes small steps downward (in the direction of the steepest descent) until the error stops changing.
 
 
+# What is logistic regression?
+A logistic regression model assumes a linear relationship between the continuous independent variables and the log-odds (logit) of the dependent outcome, rather than a direct linear relationship with the probability itself. [1]
+
+## What "Linearity" Means in Logistic Regression
+* In standard linear regression, you expect a straight-line relationship where a one-unit change in X results in a constant change in Y. In logistic regression, the target output is a binary category (0 or 1), and the predicted probability must stay bounded between 0 and 1.
+* Because an S-shaped curve cannot be modeled with a simple straight line on the probability scale, logistic regression transforms the probability ($p$) into odds
+  $\frac{p}{1-p}$, and then takes the natural logarithm to get the log-odds (or logit).
+* Therefore, linearity means that:
+  * The log-odds change at a constant, linear rate for every one-unit increase in the predictor variable X.
+* The underlying equation inside the model remains a linear combination of features:
+
+  $z = \beta_0 + \beta_1X_1 + \dots + \beta_nX_n\$
+
+
+## How Logistic Regression Works
+* Logistic regression works in two primary phases: calculating the linear score and passing it through a special shaping function to squeeze the result into a valid probability. 
+
+### 1. The Linear Equation (Logit)
+* First, the model calculates a standard linear combination of the input features and their learned weights (coefficients), exactly like linear regression:
+
+   $z=\beta_{0} + \beta_{1}X_{1} + \beta_{2}X_{2} + \dots +\beta_{n}X_{n}$
+* This value z can range from negative infinity to positive infinity (-∞ to +∞). 
+
+### 2. The Sigmoid (Logistic) Function
+* To convert that unbounded number z into a usable probability between 0 and 1, the model passes z through the sigmoid function:
+   $P(Y=1) = \frac{1}{1+e^{-z}}$
+* This function creates a characteristic S-shaped curve. Extremely high positive values of z approach a probability of 1.0, while extreme negative values approach 0.0.
+
+
+### 3. Classification via Thresholding
+* Once the model outputs a predicted probability (e.g., 0.78), you apply a decision threshold—usually 0.5. If the probability is greater than or equal to the threshold, it classifies the data point as class 1; otherwise, it classifies it as class 0
+
+
+### Assumptions
+A logistic regression model makes five core statistical assumptions regarding the structure of the data and the relationships between variables.
+* **Binary dependent variable:** The target outcome variable must be binary or dichotomous, meaning it has only two distinct categorical values like 0 or 1, true or false, or pass or fail.
+* **Linearity of log-odds:** There must be a linear relationship between any continuous independent predictor variables and the log-odds (logit transformation) of the dependent variable.
+* **Independence of observations:** The data points must be completely independent of one another, meaning the choice or measurement of one observation does not influence or relate to another observation.
+* **Absence of multicollinearity:** The independent predictor variables should not be strongly correlated with one another, a condition you can evaluate using the Variance Inflation Factor (VIF) to ensure individual feature stability.
+* **Large sample size:** The model requires a sufficiently large sample size to perform reliable estimation, with a standard guideline of having at least 10 to 20 cases of the least frequent outcome for every predictor variable you include.
+* **Low or no extreme outliers:** The dataset should be free of extreme influential data points or severe outliers that can disproportionately skew the estimated coefficients of the logistic curve.
+
+
+### 4. Model Training via Maximum Likelihood Estimation (MLE)
+
+* Logistic regression uses Binary Cross-Entropy, also known as Log Loss, as its loss function instead of Mean Squared Error.
+* For a single training example, the loss (L) is defined as:
+
+$L(y,\hat{y})=-[y\log(\hat{y})+(1-y)\log(1-\hat{y})]$
+
+* For the entire dataset with m examples, the total cost function (J) is the average of the loss across all points:
+$J=-\frac{1}{m}\sum_{i=1}^{m}[y^{(i)}\log (\hat{y}^{(i)})+(1-y^{(i)})\log (1-\hat{y}^{(i)})]$
+
+* Where:
+  * $y$ is the actual true label (0 or 1).
+  * ŷ is the predicted probability that the outcome is 1 (output by the sigmoid function).
+
+
+
+
+
 # What is multicollinearity? How does it impact linear regression?
 * Multicollinearity happens when two or more independent variables in a multiple linear regression model are strongly correlated with each other, meaning they try to explain the same part of the information in the target variable.
 * When you use multiple linear regression, you want each input feature to give unique, independent clues to the model.
