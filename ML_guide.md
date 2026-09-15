@@ -176,8 +176,21 @@ $J=-\frac{1}{m}\sum_{i=1}^{m}[y^{(i)}\log (\hat{y}^{(i)})+(1-y^{(i)})\log (1-\ha
   * ŷ is the predicted probability that the outcome is 1 (output by the sigmoid function).
 
 
+### Why It Works
+* **Severe Penalties for Confidence:** If the true label is 1 and the model predicts a probability near 0, the $\log(0)$ approaches infinity, heavily penalizing the wrong prediction. 
+* **Convex Shape:** Unlike Mean Squared Error, which creates a wavy, non-convex curve with multiple local minimums on logistic outputs, log loss guarantees a single global minimum. This makes optimization using gradient descent much easier
 
+### MLE
+* Unlike linear regression (which uses least-squares optimization), logistic regression finds the best-fit parameters (β coefficients) using Maximum Likelihood Estimation (MLE).
+* The algorithm iteratively adjusts the weights to maximize the probability (likelihood) of the model correctly predicting the actual 0 or 1 outcomes present in the training dataset.
+* Optimization routines like gradient descent are typically used under the hood to find these optimal parameters. 
 
+References -
+* [Logistic Regression (and why it's different from Linear Regression](https://youtu.be/3bvM3NyMiE0?si=pLKuqs8BrosTpDB5)
+* https://www.ibm.com/think/topics/logistic-regression
+* https://www.geeksforgeeks.org/machine-learning/ml-cost-function-in-logistic-regression/
+
+  
 
 # What is multicollinearity? How does it impact linear regression?
 * Multicollinearity happens when two or more independent variables in a multiple linear regression model are strongly correlated with each other, meaning they try to explain the same part of the information in the target variable.
