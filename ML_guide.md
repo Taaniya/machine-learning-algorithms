@@ -1,3 +1,12 @@
+1. [EDA](#eda)
+2. [Strategies to handle missing values](#strategies-to-handle-missing-values)
+3. [What is a linear regression model?](#what-is-a-linear-regression-model)
+4. [What is logistic regression?](#what-is-logistic-regression)
+5. [What is multicollinearity? How does it impact linear regression?](#what-is-multicollinearity-how-does-it-impact-linear-regression)
+6. [What is a p-value in linear and logistic regression models?](#what-is-a-p-value-in-linear-and-logistic-regression-models)
+7. [Feature scaling techniques](#feature-scaling-techniques)
+
+
 # EDA
 EDA is about understanding the "story" of the data before building a model. We can follow below step-by-step process using a structured framework:
 
@@ -215,7 +224,7 @@ References -
 * Apply Regularization: Use advanced linear models like Ridge Regression or Lasso Regression, which shrink the coefficients and handle correlated inputs safely
 
 
-## What is a p-value in linear and logistic regression models?
+# What is a p-value in linear and logistic regression models?
 * In regression modeling, the p-value evaluates whether a specific independent variable has a statistically significant relationship with the target variable.
 * For both linear and logistic regression, the Null Hypothesis $H_{0}$ states that an input feature has no effect on the target (meaning its mathematical weight or coefficient is zero).
 * A low p-value (typically $\le$ 0.05) rejects this hypothesis, proving the feature is a statistically significant predictor.
