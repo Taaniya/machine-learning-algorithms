@@ -31,18 +31,47 @@ EDA is about understanding the "story" of the data before building a model. We c
 * **Mean Imputation**
   * When to use: The data is numeric and forms a bell curve or symmetrical shape.
   * Why it works: The average balances out evenly when data points cluster symmetrically around the center.
-  * Example: Normal human body temperatures or standardized test scores without extreme scores. [1, 2]
+  * Example: Normal human body temperatures or standardized test scores without extreme scores. 
 
 * **Median Imputation**
   * When to use: The data is skewed (pulled toward high or low values) or has major outliers.
   * Why it works: Extreme high or low numbers pull the mean away from the true center, but the middle value (median) stays robust and unaffected.
-  * Example: Household income or property prices, where a few multi-million dollar values distort the average. [1, 2, 3]
+  * Example: Household income or property prices, where a few multi-million dollar values distort the average. 
 
 * **Best Practice Tip**
-  * Always check your data distribution with a histogram or boxplot before choosing an imputation method. Furthermore, always calculate the mean or median strictly from your training dataset to prevent data leakage into your test set. [1, 2]
+  * Always check your data distribution with a histogram or boxplot before choosing an imputation method. Furthermore, always calculate the mean or median strictly from your training dataset to prevent data leakage into your test set. 
 
 Reference:
 * [MeanMedianImputer](https://feature-engine.trainindata.com/en/1.8.x/user_guide/imputation/MeanMedianImputer.html#meanmedianimputer)
+
+##Detecting and handling outliers
+Handling outliers in machine learning involves identifying extreme data points and deciding whether to remove, transform, or leave them based on their impact on your model.
+
+## 1. Detect Outliers
+Before handling outliers, you must find them using statistical or visual tools: 
+* **Interquartile Range (IQR):** Flags points below Q₁ - 1.5 × IQR or above Q₃ + 1.5 × IQR (best for skewed data).
+* **Z-Score:** Flags points that deviate more than 3 standard deviations from the mean (best for normally distributed data).
+* **Visual Plots:** Box plots and scatter plots help spot extreme values quickly.
+* **Machine Learning Methods:** Use unsupervised algorithms like Isolation Forest or Local Outlier Factor (LOF) for complex or high-dimensional data. 
+
+
+## 2. Choose a Handling Strategy
+Decide how to treat outliers based on whether they are data entry errors or rare, genuine events: 
+* **Removal:** Delete rows with extreme values if they are clear errors or represent a tiny fraction (<2-3%) of your data. Avoid this if you lose too much data or if the outliers represent valuable rare events like fraud. 
+* Capping and Flooring (Winsorization): Replace extreme values with a specific percentile boundary (e.g., the 5th or 95th percentile) or the nearest non-outlier value.
+* **Imputation:** Convert outliers to missing values (NaN) and fill them using robust central tendencies like the median, or algorithms like k-Nearest Neighbors (KNN). 
+* **Transformation:** Apply mathematical functions like logarithmic or Square Root transformations to compress the scale of right-skewed data and reduce the weight of extreme points. 
+* **Use Robust Models**: Switch to algorithms that are naturally resistant to outliers, such as Tree-based models (Random Forest, Gradient Boosting), or robust regression techniques like Huber Regression.
+
+
+**Why these steps matter if using Logistic Regression:**
+* **Capping vs. Dropping:** Dropping rows removes valid relationships that other features might hold. Capping keeps the data point but mutes its extreme leverage on the log-odds linear boundary.
+* **Feature Scaling:** Logistic Regression relies on gradient descent or coordinate descent algorithms. Scaling your variables using StandardScaler after handling outliers ensures the model converges properly and coefficients remain interpretable.
+
+References:
+* https://machinelearningmastery.com/spotting-the-exception-classical-methods-for-outlier-detection-in-data-science/
+* https://www.geeksforgeeks.org/machine-learning/machine-learning-outlier/
+* [How To Handle Outliers In Regression Algorithms Effectively?](https://www.youtube.com/watch?v=hj0nAJ0-3qs&t=8s)
 
 # What is a linear regression model?
 * Linear regression is a fundamental supervised machine learning algorithm used to model the linear relationship between a continuous dependent variable and one or more independent variables by fitting a straight line
