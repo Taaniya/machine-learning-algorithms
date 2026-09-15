@@ -20,6 +20,13 @@ EDA is about understanding the "story" of the data before building a model. We c
 * Look for relationships between features and the target variable (e.g., box plots of a numerical feature across different target classes).
 * Use a correlation matrix (heatmap) to check for relationships between numerical features, keeping a sharp eye out for multicollinearity.
 
+### Further reading sources:
+* [What is EDA](https://www.geeksforgeeks.org/data-analysis/what-is-exploratory-data-analysis/)
+* [EDA in python](https://www.geeksforgeeks.org/data-analysis/exploratory-data-analysis-in-python/)
+* [Univariate, bivariate and multi-variate data and its analysis](https://www.geeksforgeeks.org/data-analysis/univariate-bivariate-and-multivariate-data-and-its-analysis/)
+* [Data analysis with box-plot](https://www.geeksforgeeks.org/data-analysis/box-plot/)
+
+
 # Strategies to handle missing values
 * **Mean Imputation**
   * When to use: The data is numeric and forms a bell curve or symmetrical shape.
